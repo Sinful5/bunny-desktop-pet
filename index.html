@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐰 My Bunny Companion</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffeef8 0%, #eef5ff 100%);
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+        }
+
+        /* Cute decorative background elements */
+        .heart {
+            position: absolute;
+            color: #ffb7d5;
+            font-size: 24px;
+            animation: floatHearts 6s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        /* The Animated Bunny */
+        #bunny {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px; /* Adjust size to look crisp */
+            height: auto;
+            user-select: none;
+            cursor: grab;
+            /* Combined hopping animation and side-to-side pacing */
+            animation: hop 0.6s infinite alternate ease-in-out, walkAround 15s infinite linear;
+        }
+
+        #bunny:active {
+            cursor: grabbing;
+        }
+
+        /* Adorable Hopping Animation */
+        @keyframes hop {
+            0% { transform: translateY(0) scaleY(1) scaleX(1); }
+            100% { transform: translateY(-25px) scaleY(1.05) scaleX(0.95); }
+        }
+
+        /* Smooth Walking Back and Forth Animation */
+        @keyframes walkAround {
+            0% { left: 10%; }
+            45% { left: 90%; transform: scaleX(1); }
+            50% { transform: scaleX(-1); } /* Turn around */
+            95% { left: 10%; transform: scaleX(-1); }
+            100% { left: 10%; transform: scaleX(1); }
+        }
+
+        @keyframes floatHearts {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .love-note {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            color: #ff65a3;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="love-note">🌸 A little bunny companion keeping you company! 🌸</div>
+
+    <!-- Floating background hearts -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;">✨</div>
+    <div class="heart" style="left: 70%; animation-delay: 1s;">❤️</div>
+    <div class="heart" style="left: 85%; animation-delay: 3s;">🌸</div>
+
+    <!-- Your custom transparent bunny image directly from your repository -->
+    <img id="bunny" src="pet.png" alt="Bunny Pet">
+
+</body>
+</html>
